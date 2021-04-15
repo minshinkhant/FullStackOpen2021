@@ -7,15 +7,16 @@ Exercises are submitted through GitHub and by marking completed exercises in the
 You may submit all the exercises of this course into the same repository, or use multiple repositories. If you submit exercises of different parts into the same repository, please use a sensible naming scheme for the directories.
 
 One very functional file structure for the submission repository is as follows:
-
-`part0
+```
+part0
 part1
   courseinfo
   unicafe
   anecdotes
 part2
   phonebook
-  countries`
+  countries
+```
 
 For each part of the course there is a directory, which further branches into directories containing a series of exercises, like "unicafe" for part 1.
 
@@ -30,7 +31,8 @@ The application that we will start working on in this exercise will be further d
 
 Use create-react-app to initialize a new application. Modify index.js to match the following
 
-`import ReactDOM from 'react-dom'
+```
+import ReactDOM from 'react-dom'
 import App from './App'
 
 ReactDOM.render(
@@ -65,7 +67,8 @@ const App = () => {
       <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
     </div>
   )
-}`
+}
+```
 
 export default App
 and remove extra files (App.css, App.test.js, logo.svg, setupTests.js, reportWebVitals.js)).
@@ -76,7 +79,8 @@ Define the new components in file App.js.
 
 The App component's body will approximately be as follows:
 
-`const App = () => {
+```
+const App = () => {
   // const-definitions
 
   return (
@@ -86,14 +90,16 @@ The App component's body will approximately be as follows:
       <Total ... />
     </div>
   )
-}`
+}
+```
 
 WARNING create-react-app automatically makes the project a git repository unless the application is created within an already existing repository. Most likely you do not want the project to become a repository, so run the command rm -rf .git in the root of the project.
 
 ### 1.2: course information, step2
 Refactor the Content component so that it does not render any names of parts or their number of exercises by itself. Instead it only renders three Part components of which each renders the name and number of exercises of one part.
 
-`const Content = ... {
+```
+const Content = ... {
   return (
     <div>
       <Part .../>
@@ -101,6 +107,7 @@ Refactor the Content component so that it does not render any names of parts or 
       <Part .../>
     </div>
   )
-}`
+}
+```
 
 Our application passes on information in quite a primitive way at the moment, since it is based on individual variables. This situation will improve soon.
