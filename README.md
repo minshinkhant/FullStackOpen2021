@@ -26,7 +26,7 @@ The exercises are submitted one part at a time. When you have submitted the exer
 
 Note that in this part, there are more exercises besides those found below. Do not submit your work until you have completed all of the exercises you want to submit for the part.
 
-1.1: course information, step1
+### 1.1: course information, step1
 The application that we will start working on in this exercise will be further developed in a few of the following exercises. In this and other upcoming exercise sets in this course, it is enough to only submit the final state of the application. If desired, you may also create a commit for each exercise of the series, but this is entirely optional.
 
 Use create-react-app to initialize a new application. Modify index.js to match the following
