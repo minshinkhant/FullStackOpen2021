@@ -1,7 +1,4 @@
-
-
-
-### Exercises 1.1.-1.2.
+## Exercises 1.1.- 1.2.
 Exercises are submitted through GitHub and by marking completed exercises in the submission application.
 
 You may submit all the exercises of this course into the same repository, or use multiple repositories. If you submit exercises of different parts into the same repository, please use a sensible naming scheme for the directories.
