@@ -4,6 +4,7 @@
 /1.1-1.2/node_modules
 /1.3-1.5/node_modules
 /compo/node_modules
+/state2/node_modules
 /.pnp
 .pnp.js
 
