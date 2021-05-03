@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# Exercises 1.6.-1.14.
+Submit your solutions to the exercises by first pushing your code to GitHub and then marking the completed exercises into the exercise submission system.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Remember, submit all the exercises of one part in a single submission. Once you have submitted your solutions for one part, you cannot submit more exercises to that part any more.
 
-## Available Scripts
+Some of the exercises work on the same application. In these cases, it is sufficient to submit just the final version of the application. If you wish, you can make a commit after every finished exercise, but it is not mandatory.
 
-In the project directory, you can run:
+WARNING create-react-app will automatically turn your project into a git-repository unless you create your application inside of an existing git repository. Most likely you do not want each of your projects to be a separate repository, so simply run the rm -rf .git command at the root of your application.
 
-### `yarn start`
+In some situations you may also have to run the command below from the root of the project:
+```
+rm -rf node_modules/ && npm i
+```
+**1.6: unicafe step1**
+Like most companies, Unicafe collects feedback from its customers. Your task is to implement a web application for collecting customer feedback. There are only three options for feedback: good, neutral, and bad.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The application must display the total number of collected feedback for each category. Your final application could look like this:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+fullstack content
+Note that your application needs to work only during a single browser session. Once you refresh the page, the collected feedback is allowed to disappear.
 
-### `yarn test`
+It is advisable to use the same structure that is used in material and previous exercise. File index.js is as follows:
+```
+import ReactDOM from 'react-dom'
+import App from './App'
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ReactDOM.render(
+  <App />, 
+  document.getElementById('root')
+)
+You can use the code below as a starting point for the App.js file:
 
-### `yarn build`
+import React, { useState } from 'react'
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+const App = () => {
+  // save clicks of each button to its own state
+  const [good, setGood] = useState(0)
+  const [neutral, setNeutral] = useState(0)
+  const [bad, setBad] = useState(0)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  return (
+    <div>
+      code here
+    </div>
+  )
+}
+```
+export default App
+**1.7: unicafe step2**
+Expand your application so that it shows more statistics about the gathered feedback: the total number of collected feedback, the average score (good: 1, neutral: 0, bad: -1) and the percentage of positive feedback.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+fullstack content
+**1.8: unicafe step3**
+Refactor your application so that displaying the statistics is extracted into its own Statistics component. The state of the application should remain in the App root component.
 
-### `yarn eject`
+Remember that components should not be defined inside other components:
+```
+// a proper place to define a component
+const Statistics = (props) => {
+  // ...
+}
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+const App = () => {
+  const [good, setGood] = useState(0)
+  const [neutral, setNeutral] = useState(0)
+  const [bad, setBad] = useState(0)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  // do not define a component within another component
+  const Statistics = (props) => {
+    // ...
+  }
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  return (
+    // ...
+  )
+}
+```
+**1.9: unicafe step4**
+Change your application to display statistics only once feedback has been gathered.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+fullstack content
+**1.10: unicafe step5**
+Let's continue refactoring the application. Extract the following two components:
 
-## Learn More
+Button for defining the buttons used for submitting feedback
+Statistic for displaying a single statistic, e.g. the average score.
+To be clear: the Statistic component always displays a single statistic, meaning that the application uses multiple components for rendering all of the statistics:
+```
+const Statistics = (props) => {
+  /// ...
+  return(
+    <div>
+      <Statistic text="good" value ={...} />
+      <Statistic text="neutral" value ={...} />
+      <Statistic text="bad" value ={...} />
+      // ...
+    </div>
+  )
+}
+```
+The application's state should still be kept in the root App component.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**1.11*: unicafe step6**
+Display the statistics in an HTML table, so that your application looks roughly like this:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+fullstack content
+Remember to keep your console open at all times. If you see this warning in your console:
 
-### Code Splitting
+fullstack content
+Then perform the necessary actions to make the warning disappear. Try Googling the error message if you get stuck.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Typical source of an error Unchecked runtime.lastError: Could not establish connection. Receiving end does not exist.is Chrome extension. Try going to chrome://extensions/and try disabling them one by one and refreshing React app page; the error should eventually disappear.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Make sure that from now on you don't see any warnings in your console!
