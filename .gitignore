@@ -6,6 +6,7 @@
 /compo/node_modules
 /state2/node_modules
 /unicafe/node_modules
+/anecdotes/node_modules
 /.pnp
 .pnp.js
 
