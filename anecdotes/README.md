@@ -1,4 +1,4 @@
-**1.12*: anecdotes step1**
+**1.12: anecdotes step1**
 
 The world of software engineering is filled with anecdotes that distill timeless truths from our field into short one-liners.
 
@@ -39,7 +39,7 @@ fullstack content(image)
 
 WARNING create-react-app will automatically turn your project into a git-repository unless you create your application inside of an existing git repository. Most likely you do not want each of your projects to be a separate repository, so simply run the rm -rf .git command at the root of your application.
 
-**1.13*: anecdotes step2**
+**1.13: anecdotes step2**
 
 Expand your application so that you can vote for the displayed anecdote.
 
@@ -68,7 +68,7 @@ copy[2] += 1
 
 Using an array might be the simpler choice in this case. Googling will provide you with lots of hints on how to create a zero-filled array of a desired length, like this.
 
-**1.14*: anecdotes step3**
+**1.14: anecdotes step3**
 
 Now implement the final version of the application that displays the anecdote with the largest number of votes:
 
